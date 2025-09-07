@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voces de Pacasmayo - Cambiando nuestra realidad juntos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h1>VOCES DE PACASMAYO</h1>
+            </div>
+            <nav class="nav">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#problemas" class="nav-link">Problemas</a>
+                <a href="#foro" class="nav-link">Foro</a>
+                <a href="#campañas" class="nav-link">Campañas</a>
+                <a href="#ia" class="nav-link">Asistente IA</a>
+                <a href="#noticias" class="nav-link">Noticias</a>
+                <a href="#recursos" class="nav-link">Recursos</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Principal -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="welcome-section">
+                <h2 class="welcome-title">Hola, <span id="userName">Ciudadano</span>, bienvenido a Voces de Pacasmayo</h2>
+                <p class="welcome-subtitle">Pacasmayo tiene voz, y juntos podemos cambiar nuestra realidad</p>
+                
+                <!-- Indicador de Progreso -->
+                <div class="progress-section">
+                    <div class="progress-circle">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <span class="progress-text" id="progressText">0%</span>
+                    </div>
+                    <p class="progress-description" id="progressDescription">0% de campañas completadas</p>
+                </div>
+
+                <!-- Botones de Acceso Rápido -->
+                <div class="quick-access">
+                    <button class="access-btn" onclick="scrollToSection('noticias')">
+                        <i class="fas fa-newspaper"></i>
+                        Noticias
+                    </button>
+                    <button class="access-btn" onclick="scrollToSection('foro')">
+                        <i class="fas fa-comments"></i>
+                        Foro
+                    </button>
+                    <button class="access-btn" onclick="scrollToSection('campañas')">
+                        <i class="fas fa-hands-helping"></i>
+                        Campañas
+                    </button>
+                    <button class="access-btn" onclick="scrollToSection('recursos')">
+                        <i class="fas fa-book"></i>
+                        Recursos
+                    </button>
+                </div>
+
+                <!-- Botón Principal -->
+                <button class="cta-button" onclick="showJoinModal()">
+                    <i class="fas fa-heart"></i>
+                    Súmate al cambio
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Problemas Sociales -->
+    <section id="problemas" class="problems-section">
+        <div class="container">
+            <h2 class="section-title">Problemas Sociales en Pacasmayo</h2>
+            <div class="problems-grid">
+                <div class="problem-card environment">
+                    <div class="problem-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>🌱 Medio Ambiente</h3>
+                    <p>Contaminación de playas, basura en calles, campañas de limpieza</p>
+                    <div class="problem-actions">
+                        <button class="btn-propose" onclick="showSolutionModal('ambiente')">Proponer solución</button>
+                        <button class="btn-more" onclick="showProblemDetails('ambiente')">Ver más</button>
+                    </div>
+                </div>
+
+                <div class="problem-card family">
+                    <div class="problem-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>👨‍👩‍👧 Familia y Convivencia</h3>
+                    <p>Violencia familiar, bullying escolar, pérdida de valores</p>
+                    <div class="problem-actions">
+                        <button class="btn-propose" onclick="showSolutionModal('familia')">Proponer solución</button>
+                        <button class="btn-more" onclick="showProblemDetails('familia')">Ver más</button>
+                    </div>
+                </div>
+
+                <div class="problem-card youth">
+                    <div class="problem-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>👩‍🎓 Juventud y Educación</h3>
+                    <p>Falta de empleo, abandono escolar, poca capacitación</p>
+                    <div class="problem-actions">
+                        <button class="btn-propose" onclick="showSolutionModal('juventud')">Proponer solución</button>
+                        <button class="btn-more" onclick="showProblemDetails('juventud')">Ver más</button>
+                    </div>
+                </div>
+
+                <div class="problem-card participation">
+                    <div class="problem-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>📢 Participación Ciudadana</h3>
+                    <p>Desinterés social, falta de unión en la comunidad</p>
+                    <div class="problem-actions">
+                        <button class="btn-propose" onclick="showSolutionModal('participacion')">Proponer solución</button>
+                        <button class="btn-more" onclick="showProblemDetails('participacion')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Foro Ciudadano -->
+    <section id="foro" class="forum-section">
+        <div class="container">
+            <h2 class="section-title">Foro Ciudadano</h2>
+            <div class="forum-container">
+                <div class="forum-form">
+                    <h3>Publica tu opinión, denuncia o propuesta</h3>
+                    <form id="forumForm">
+                        <select id="postType" required>
+                            <option value="">Selecciona el tipo de publicación</option>
+                            <option value="opinion">Opinión</option>
+                            <option value="denuncia">Denuncia Ciudadana</option>
+                            <option value="propuesta">Propuesta</option>
+                        </select>
+                        <input type="text" id="postTitle" placeholder="Título de tu publicación" required>
+                        <textarea id="postContent" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        <button type="submit" class="btn-submit">Publicar</button>
+                    </form>
+                </div>
+                <div class="forum-posts" id="forumPosts">
+                    <!-- Los posts se cargarán dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Campañas -->
+    <section id="campañas" class="campaigns-section">
+        <div class="container">
+            <h2 class="section-title">Campañas y Soluciones</h2>
+            <div class="campaigns-grid">
+                <div class="campaign-card">
+                    <div class="campaign-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Pacasmayo sin Violencia</h3>
+                    <p>Campaña para erradicar la violencia familiar y escolar en nuestra comunidad</p>
+                    <button class="btn-volunteer" onclick="joinCampaign('violencia')">Inscribirse como voluntario</button>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-image">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Playas Limpias</h3>
+                    <p>Iniciativa para mantener nuestras playas libres de contaminación</p>
+                    <button class="btn-volunteer" onclick="joinCampaign('playas')">Inscribirse como voluntario</button>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Jóvenes con Futuro</h3>
+                    <p>Programa de capacitación y empleo para jóvenes de Pacasmayo</p>
+                    <button class="btn-volunteer" onclick="joinCampaign('jovenes')">Inscribirse como voluntario</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Asistente IA -->
+    <section id="ia" class="ai-section">
+        <div class="container">
+            <h2 class="section-title">Asistente con IA</h2>
+            <div class="ai-chat-container">
+                <div class="ai-chat-header">
+                    <div class="ai-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Asistente Virtual de Voces de Pacasmayo</h3>
+                    <p>Pregúntame sobre denuncias, campañas, recursos y más</p>
+                </div>
+                <div class="ai-chat-messages" id="aiChatMessages">
+                    <div class="ai-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>¡Hola! Soy tu asistente virtual. Puedo ayudarte con información sobre:</p>
+                            <ul>
+                                <li>Dónde denunciar violencia familiar</li>
+                                <li>Cómo participar en campañas ambientales</li>
+                                <li>Consejos para convivir mejor en familia</li>
+                                <li>Recursos educativos disponibles</li>
+                            </ul>
+                            <p>¿En qué puedo ayudarte hoy?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-chat-input">
+                    <input type="text" id="aiInput" placeholder="Escribe tu pregunta aquí...">
+                    <button onclick="sendAIMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Noticias -->
+    <section id="noticias" class="news-section">
+        <div class="container">
+            <h2 class="section-title">Noticias y Logros Comunitarios</h2>
+            <div class="news-grid">
+                <div class="news-card featured">
+                    <div class="news-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="news-content">
+                        <h3>Jóvenes de Pacasmayo ganan concurso regional</h3>
+                        <p>Estudiantes del colegio San José obtuvieron el primer lugar en el concurso de ciencias ambientales</p>
+                        <span class="news-date">15 de Diciembre, 2024</span>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="news-content">
+                        <h3>Campaña de limpieza exitosa</h3>
+                        <p>La comunidad se unió para limpiar la playa de Pacasmayo, recolectando más de 200 kg de basura</p>
+                        <span class="news-date">12 de Diciembre, 2024</span>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="news-content">
+                        <h3>Nuevo centro de apoyo familiar</h3>
+                        <p>Se inauguró el centro de apoyo psicológico para familias en situación de violencia</p>
+                        <span class="news-date">10 de Diciembre, 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Recursos -->
+    <section id="recursos" class="resources-section">
+        <div class="container">
+            <h2 class="section-title">Recursos Educativos y de Apoyo</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Guía de Reciclaje</h3>
+                    <p>Aprende cómo reciclar correctamente en casa</p>
+                    <button class="btn-download" onclick="downloadResource('reciclaje')">Descargar PDF</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Denunciar Violencia</h3>
+                    <p>Guía paso a paso para denunciar casos de violencia familiar</p>
+                    <button class="btn-download" onclick="downloadResource('violencia')">Descargar PDF</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Preparar tu CV</h3>
+                    <p>Plantillas y consejos para crear un currículum efectivo</p>
+                    <button class="btn-download" onclick="downloadResource('cv')">Descargar PDF</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>Videos Educativos</h3>
+                    <p>Videos cortos sobre temas importantes para la comunidad</p>
+                    <button class="btn-download" onclick="showVideos()">Ver Videos</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Planes -->
+    <section class="plans-section">
+        <div class="container">
+            <h2 class="section-title">Planes de Acceso</h2>
+            <div class="plans-grid">
+                <div class="plan-card free">
+                    <h3>🟢 Plan Gratuito</h3>
+                    <p>Para toda la comunidad</p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Noticias sociales y educativas verificadas</li>
+                        <li><i class="fas fa-check"></i> Información sobre problemas y campañas activas</li>
+                        <li><i class="fas fa-check"></i> Participación en el foro ciudadano</li>
+                        <li><i class="fas fa-check"></i> Recursos básicos descargables</li>
+                        <li><i class="fas fa-check"></i> Uso del chat IA básico</li>
+                        <li><i class="fas fa-check"></i> Inscripción en campañas sociales</li>
+                    </ul>
+                    <button class="btn-plan" onclick="selectPlan('gratuito')">Activar Plan</button>
+                </div>
+
+                <div class="plan-card premium">
+                    <h3>🔵 Plan Premium</h3>
+                    <p>Para instituciones, colegios, ONGs, empresas</p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Todo lo del plan gratuito</li>
+                        <li><i class="fas fa-check"></i> IA avanzada con asesoría personalizada</li>
+                        <li><i class="fas fa-check"></i> Estadísticas y reportes comunitarios</li>
+                        <li><i class="fas fa-check"></i> Espacios de difusión propios</li>
+                        <li><i class="fas fa-check"></i> Recursos premium y cursos en línea</li>
+                        <li><i class="fas fa-check"></i> Soporte y asesoría personalizada</li>
+                        <li><i class="fas fa-check"></i> Reconocimiento como Patrocinador Social</li>
+                    </ul>
+                    <button class="btn-plan premium-btn" onclick="selectPlan('premium')">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contacto y Participación</h2>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Únete como colaborador</h3>
+                    <form id="contactForm">
+                        <input type="text" id="contactName" placeholder="Nombre completo" required>
+                        <input type="email" id="contactEmail" placeholder="Correo electrónico" required>
+                        <input type="tel" id="contactPhone" placeholder="Teléfono">
+                        <select id="contactType" required>
+                            <option value="">Tipo de colaboración</option>
+                            <option value="voluntario">Voluntario</option>
+                            <option value="institucion">Institución</option>
+                            <option value="empresa">Empresa</option>
+                            <option value="ong">ONG</option>
+                        </select>
+                        <textarea id="contactMessage" placeholder="Cuéntanos cómo quieres ayudar..." required></textarea>
+                        <button type="submit" class="btn-submit">Enviar solicitud</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contacto@vocesdepacasmayo.org</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+51 999 888 777</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-facebook"></i>
+                        <span>Voces de Pacasmayo</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <span>@vocesdepacasmayo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>VOCES DE PACASMAYO</h3>
+                    <p>Cambiando nuestra realidad juntos</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#problemas">Problemas</a>
+                    <a href="#foro">Foro</a>
+                    <a href="#campañas">Campañas</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Voces de Pacasmayo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modales -->
+    <div id="joinModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('joinModal')">&times;</span>
+            <h2>¡Súmate al cambio!</h2>
+            <p>Únete a nuestra comunidad y ayúdanos a mejorar Pacasmayo</p>
+            <form id="joinForm">
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu correo" required>
+                <button type="submit">Unirme ahora</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="solutionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('solutionModal')">&times;</span>
+            <h2>Proponer Solución</h2>
+            <form id="solutionForm">
+                <input type="text" placeholder="Título de tu propuesta" required>
+                <textarea placeholder="Describe tu solución..." required></textarea>
+                <button type="submit">Enviar propuesta</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
