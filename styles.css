@@ -104,6 +104,12 @@ body {
     line-height: 1.4;
 }
 
+/* Estilo para el nombre de usuario */
+#userName {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
 /* Indicador de Progreso */
 .progress-section {
     display: flex;
@@ -1082,6 +1088,8 @@ body {
     .welcome-title {
         font-size: 1.8rem;
         margin-bottom: 0.5rem;
+        color: #2c3e50;
+        font-weight: 700;
     }
     
     .welcome-subtitle {
@@ -1216,6 +1224,9 @@ body {
     .welcome-title {
         font-size: 1.5rem;
         line-height: 1.3;
+        color: #2c3e50;
+        font-weight: 700;
+        text-align: center;
     }
     
     .welcome-subtitle {
@@ -1325,10 +1336,18 @@ body {
     
     .welcome-title {
         font-size: 1.3rem;
+        color: #2c3e50;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        padding: 0 10px;
     }
     
     .welcome-subtitle {
         font-size: 0.85rem;
+        padding: 0 15px;
+        text-align: center;
     }
     
     .progress-circle {
@@ -1353,6 +1372,25 @@ body {
     .cta-button {
         padding: 0.8rem 1.5rem;
         font-size: 0.95rem;
+    }
+}
+
+/* Estilos adicionales para asegurar visibilidad en móviles */
+@media (max-width: 320px) {
+    .welcome-title {
+        font-size: 1.1rem;
+        padding: 0 5px;
+        line-height: 1.1;
+    }
+    
+    .welcome-subtitle {
+        font-size: 0.8rem;
+        padding: 0 10px;
+    }
+    
+    #userName {
+        color: #4CAF50;
+        font-weight: 700;
     }
 }
 
