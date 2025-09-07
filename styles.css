@@ -28,6 +28,7 @@ body {
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
 }
 
 .header .container {
@@ -91,12 +92,16 @@ body {
     color: #2c3e50;
     margin-bottom: 1rem;
     font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
 }
 
 .welcome-subtitle {
     font-size: 1.2rem;
     color: #7f8c8d;
     margin-bottom: 3rem;
+    text-align: center;
+    line-height: 1.4;
 }
 
 /* Indicador de Progreso */
@@ -1049,35 +1054,91 @@ body {
 @media (max-width: 768px) {
     .header .container {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.5rem;
+        padding: 0 15px;
+    }
+    
+    .logo h1 {
+        font-size: 1.2rem;
     }
     
     .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.3rem;
     }
     
     .hero {
-        padding: 100px 0 60px;
+        padding: 120px 0 40px;
     }
     
     .welcome-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
     
     .progress-section {
         flex-direction: column;
         gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .progress-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-circle::before {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .progress-text {
+        font-size: 1.2rem;
+    }
+    
+    .progress-description {
+        font-size: 1rem;
+        text-align: center;
     }
     
     .quick-access {
         grid-template-columns: 1fr;
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .access-btn {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
     }
     
     .forum-container,
     .contact-container {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .news-card.featured {
@@ -1092,6 +1153,7 @@ body {
     
     .plans-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .plan-card.premium {
@@ -1115,23 +1177,182 @@ body {
         padding: 0 15px;
     }
     
+    .header {
+        padding: 0.8rem 0;
+    }
+    
+    .header .container {
+        gap: 0.3rem;
+    }
+    
+    .logo {
+        gap: 8px;
+    }
+    
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+    
+    .nav {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.3rem;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.2rem;
+    }
+    
+    .hero {
+        padding: 100px 0 30px;
+    }
+    
     .welcome-title {
         font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    .welcome-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        padding: 0 10px;
+    }
+    
+    .progress-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .progress-circle {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .progress-circle::before {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .progress-text {
+        font-size: 1.1rem;
+    }
+    
+    .progress-description {
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+    
+    .quick-access {
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .access-btn {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+    
+    .cta-button {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+        border-radius: 25px;
     }
     
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
     }
     
     .problem-card,
     .campaign-card,
     .resource-card {
-        padding: 1.5rem;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
     }
     
     .modal-content {
-        margin: 10% auto;
-        padding: 1.5rem;
+        margin: 5% auto;
+        padding: 1.2rem;
+        width: 95%;
+    }
+    
+    .ai-chat-container {
+        margin: 0 10px;
+    }
+    
+    .ai-chat-messages {
+        height: 300px;
+        padding: 1rem;
+    }
+    
+    .message-content {
+        max-width: 85%;
+        font-size: 0.9rem;
+    }
+    
+    .ai-chat-input {
+        padding: 1rem;
+    }
+    
+    .ai-chat-input input {
+        font-size: 0.9rem;
+        padding: 0.7rem 0.9rem;
+    }
+    
+    .ai-chat-input button {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Estilos específicos para pantallas muy pequeñas (como en la imagen) */
+@media (max-width: 375px) {
+    .nav {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.2rem;
+    }
+    
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.1rem;
+    }
+    
+    .welcome-title {
+        font-size: 1.3rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .progress-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .progress-circle::before {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .progress-text {
+        font-size: 1rem;
+    }
+    
+    .access-btn {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
     }
 }
 
